@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 39</title>
+    <style>
+
+        div{
+            width: 400px;
+            height: 250px;
+
+            position: relative;
+        }
+        .rectangulo{
+            width: 100px;
+            height: 100px;
+            
+        }
+
+        #rectangulo-rojo{
+            background-color: red;
+            position: absolute;
+            left: 20px;
+            bottom: 5px;
+            z-index: 0;
+
+        }
+
+        #rectangulo-azul{
+            background-color: blue;
+            position: absolute;
+            z-index: 1;
+            left: 70px;
+            bottom: 55px;
+        }
+
+        #rectangulo-verde{
+            background-color: green;
+            position: absolute;
+            z-index: 2;
+            left: 95px;
+            bottom: 30px;
+        }
+
+        #rectangulo-amarillo{
+            background-color: yellow;
+            position: absolute;
+            z-index: 3;
+            left: 45px;
+            bottom: 80px;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Prácticas con z-index</h1>
+
+    <div>
+        <div class="rectangulo" id="rectangulo-amarillo"></div>
+        <div class="rectangulo" id="rectangulo-rojo"></div>
+        <div class="rectangulo" id="rectangulo-verde"></div>
+        <div class="rectangulo" id="rectangulo-azul"></div>
+    </div>
+
+    
+        
+
+    
+</body>
+</html>
