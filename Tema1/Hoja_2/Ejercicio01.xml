@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<lista>
+	<cancion>
+		<artista>Mago de oz</artista>
+		<titulo>Fiesta pagana</titulo>
+		<duracion>4.57</duracion>
+		<estilo>fusion rock y celta</estilo>
+		<puntuacion>4</puntuacion>
+		<inicio>0.20</inicio>
+		<fin>4.50</fin>
+		<estilo_corte>cut</estilo_corte>
+	</cancion>
+	
+	<cancion>
+		<artista>Mago de oz</artista>
+		<titulo>La costa del silencio</titulo>
+		<duracion>4.40</duracion>
+		<estilo>fusion rock y celta</estilo>
+		<puntuacion>5</puntuacion>
+		<inicio>0.15</inicio>
+		<fin>4.35</fin>
+	<estilo_corte>fade-out</estilo_corte>
+	</cancion>
+</lista>

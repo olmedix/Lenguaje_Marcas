@@ -1,0 +1,9 @@
+<!ELEMENT coche (marca,modelo,ocasion?, combustible , extra*)>
+<!ELEMENT marca (#PCDATA)>
+<!ELEMENT modelo (#PCDATA)>
+<!ELEMENT ocasion EMPTY>
+<!ELEMENT combustible (gasolina|diesel|electrico)>
+<!ELEMENT gasolina EMPTY>
+<!ELEMENT diesel EMPTY>
+<!ELEMENT electrico EMPTY>
+<!ELEMENT extra (#PCDATA)>

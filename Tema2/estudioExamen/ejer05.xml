@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE liga_futbol SYSTEM "ejer05.dtd">
+
+<liga_futbol>
+    <partido>
+        <equipo_local goles="3">madrid</equipo_local>
+        <equipo_visitante goles="2">barsa</equipo_visitante>
+    </partido>
+    <partido>
+        <equipo_local goles="3">voka juniors</equipo_local>
+        <equipo_visitante goles="2">sparta</equipo_visitante>
+    </partido>
+    <partido>
+        <equipo_local goles="3">munich</equipo_local>
+        <equipo_visitante goles="2">granada</equipo_visitante>
+    </partido>
+
+
+</liga_futbol>

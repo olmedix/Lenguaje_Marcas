@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<cliente id="100">
+	<nombre>Fernando</nombre>
+	<apellidos>Martínez Lopez </apellidos>
+	<identificacion>
+	      <dni>00111222Y</dni>
+	      <valor>1020015T</valor>
+	      
+	      <!-- la etiqueta vip aparecerá cuando el cliente sea importante -->
+	      <vip/>
+	      
+	</identificacion>
+</cliente>

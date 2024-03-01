@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<horario xmlns="http://www.iessonferrer.net/horarios">
+	<lunes>
+		<clase>Fol</clase>
+		<clase>Fol</clase>
+		<clase>Sistemas informáticos</clase>
+		<clase>Sistemas informáticos</clase>
+		<clase>Base de datos</clase>
+		<clase>Base de datos</clase>
+	</lunes>
+	<martes>
+		<clase>Sistemas informáticos</clase>
+		<clase>Sistemas informáticos</clase>
+		<clase>Entornos de desarrollo</clase>
+		<clase>Programación</clase>
+		<clase>Programación</clase>
+		<clase>Lenguaje de marcas</clase>
+	</martes>
+	<miercoles>
+		<clase>Lenguaje de marcas</clase>
+		<clase>Base de datos</clase>
+		<clase>Base de datos</clase>
+		<clase>Entornos de desarrollo</clase>
+		<clase>Programación</clase>
+		<clase>Programación</clase>
+	</miercoles>
+	<jueves>
+		<clase>Programación</clase>
+		<clase>Programación</clase>
+		<clase>Sistemas informáticos</clase>
+		<clase>Fol</clase>
+		<clase>Base de datos</clase>
+		<clase>Base de datos</clase>
+	</jueves>
+	<viernes>
+		<clase>Entornos de desarrollo</clase>
+		<clase>Programación</clase>
+		<clase>Base de datos</clase>
+		<clase>Base de datos</clase>
+		<clase>Lenguaje de marcas</clase>
+		<clase>Lenguaje de marcas</clase>
+	</viernes>
+
+</horario>

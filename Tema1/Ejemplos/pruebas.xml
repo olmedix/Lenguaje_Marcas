@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<instituto xmlns:c="http:www.papeleriaplus.com/clientes"
+		   xmlns="http:www.papeleriaplus.com/articulos">
+	<pedido>
+		<c:cliente>
+			<c:id>DNI</c:id>
+			<c:id_valor>10200200R</c:id_valor>
+			<c:nombre>Lucía Ortiz</c:nombre>
+		</c:cliente>
+		<articulo>
+			<id>205</id>
+			<descripcion>Libreta Oxford A4</descripcion>
+			<precio>4.50</precio>
+		</articulo>
+		<articulo>
+			<id>401</id>
+			<descripcion>Bolígrafo Pilot Extra</descripcion>
+			<precio>2.15</precio>
+		</articulo>
+		<!--  5 normas de XML
+		1) Todo archivo XML debe tener una etiqueta raiz y el resto de etiquetas
+		   iran en su interior.
+		2) Todas las etiquetas tendrán una etiqueta de cierre.
+		3) Las etiquetas deben ir anidadas es decir no puede empezar dentro de una etiqueta
+		    y cerrar dentro de otra.
+		4) Las etiquetas solo pueden empezar por letra o barra baja. No pueden empezar 
+		por números, la palabra xml , no puede haber espacios, puede haber guiones altos
+		5)Valores de los atributos siempre deben ir entre comillas.
+		
+		 -->
+		<![CDATA[
+		<!--  -->
+		]]>
+	</pedido>
+
+</instituto>

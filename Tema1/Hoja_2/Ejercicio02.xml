@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Factura num="999">
+	<datosEmpresa>
+		<nombre>Equipos Digitales S.L. Av. Valladolid</nombre>
+		<ciudad>Madrid 28015</ciudad>	
+		<cif>Q-9876543</cif>
+		<telefono>917776688</telefono>	
+		<fax>917776699</fax>
+		<fecha>12/09/2016</fecha>
+		<pedido>Num 731</pedido>
+		<formaPago>Efectivo</formaPago>
+	</datosEmpresa>	
+	
+	<datosCliente>
+		<numero>879</numero>
+		<nombre>Carlos Sierra García</nombre>
+		<direccionEnvio>Av. Oporto num 7 piso 4 puerta D</direccionEnvio>
+		<poblacion>Madrid cod. postal: 28043</poblacion>
+		<provincia>Madrid</provincia>
+	</datosCliente>
+	
+	<datosFactura>
+		<articulo ref="INT791">
+			<descripcion>Procesador intel core i5-6500 3.2
+			3.2GHZ SK1151 6MB 65W SKYLINE</descripcion>
+			<cantidad>1</cantidad>
+			<precio>178</precio>
+			<importe>178</importe>
+		</articulo>
+		
+		<articulo ref="GBY776">
+			<descripcion>Placa intel core i3/i5/i7 GIGABYTE GA-H110M-S2H SK1151
+			DDR4 HDMI/DVI/USB3.0</descripcion>
+			<cantidad>1</cantidad>
+			<precio>54</precio>
+			<importe>54</importe>
+		</articulo>
+		
+		<articulo ref="GB776">
+			<descripcion>MEMORIA 8GB DDR4 2133 KINGSTON HYPERX 
+			FURY BLACK CL-14</descripcion>
+			<cantidad>2</cantidad>
+			<precio>40</precio>
+			<importe>80</importe>
+		</articulo>
+		
+		<articulo ref="KGN2162">
+			<descripcion>DISCO DURO 120GB 2.5" KINGSTON SSD
+			NOW SATA3 UV400 SERIES</descripcion>
+			<cantidad>1</cantidad>
+			<precio>36</precio>
+			<importe>36</importe>
+		</articulo>
+		
+		<impuestosArticulos>
+			<baseImponible>348.00</baseImponible>
+			<ivaPorcentaje>21</ivaPorcentaje>
+			<ivaImporte>73.08</ivaImporte>
+		</impuestosArticulos>
+		
+		<totalFactura>421.08</totalFactura>
+	</datosFactura>
+	
+	
+</Factura>

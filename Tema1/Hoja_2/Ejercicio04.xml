@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<aplicacion>
+	<!-- Programador que ha escrito en Java -->
+	<creador>Carlos</creador>
+	<!-- fecha de escritura -->
+	<fecha>15 de septiembre</fecha>
+	<codigo>
+	<!-- Esta etiqueta sirve para que no tenga en cuenta ninguna de las normas. -->
+		<![CDATA[
+			cmbCursos=newJComboBox<String>();
+			cmbCursos.addItem("Selecciona un curso");
+			cmbCursos.addItem("1º ESO");
+		]]>
+	</codigo>
+</aplicacion>

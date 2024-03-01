@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<farmacia>
+       
+	 <medicamento receta="no">"Amoxicilina"</medicamento>
+     <medicamento receta="no">"Nolotil"</medicamento>	
+     
+     <medicamento receta="si">"Amoxicilina"</medicamento>
+	 <medicamento receta="si">"Amoxicilina"</medicamento>
+		
+</farmacia>

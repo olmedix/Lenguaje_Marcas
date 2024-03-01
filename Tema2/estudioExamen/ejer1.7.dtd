@@ -1,0 +1,4 @@
+<!ELEMENT albumesMortadelo (album+)>
+<!ELEMENT album EMPTY>
+<!ATTLIST album nombre CDATA #REQUIRED>
+<!ATTLIST album fecha NMTOKEN #REQUIRED>

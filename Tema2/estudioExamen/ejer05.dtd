@@ -1,0 +1,7 @@
+<!ELEMENT liga_futbol (partido*)>
+<!ELEMENT partido (equipo_local,equipo_visitante)>
+<!ELEMENT equipo_local (#PCDATA)>
+<!ATTLIST equipo_local goles NMTOKEN #REQUIRED>
+
+<!ELEMENT equipo_visitante (#PCDATA)>
+<!ATTLIST equipo_visitante goles NMTOKEN #REQUIRED>
