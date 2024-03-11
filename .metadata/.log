@@ -1373,3 +1373,13 @@ Caused by: java.lang.IllegalStateException: BundleContext is no longer valid org
 	at org.eclipse.oomph.p2.core.P2Util.getCurrentProvisioningAgent(P2Util.java:114)
 	at org.eclipse.oomph.setup.internal.core.util.SetupCoreUtil.<clinit>(SetupCoreUtil.java:157)
 	... 6 more
+!SESSION 2024-03-10 17:56:08.749 -----------------------------------------------
+eclipse.buildId=4.30.0.20231201-1200
+java.version=17.0.8
+java.vendor=Oracle Corporation
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=es_ES
+Framework arguments:  -product org.eclipse.epp.package.java.product
+Command-line arguments:  -data C:\\Users\\Juanjo\\lenguaje de marcas -os win32 -ws win32 -arch x86_64 -product org.eclipse.epp.package.java.product
+
+!ENTRY ch.qos.logback.classic 1 0 2024-03-10 17:56:10.365
+!MESSAGE Activated before the state location was initialized. Retry after the state location is initialized.
