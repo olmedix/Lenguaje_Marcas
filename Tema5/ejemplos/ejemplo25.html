@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejemplo 25</title>
+    <style>
+        .bloque{
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        input:checked+label{
+            color: brown;
+        }
+
+        .azul{
+            color:blue
+        }
+
+        :not(.azul){
+            color: orange;
+        }
+    </style>
+</head>
+<body>
+    <h1>Pseudoclases</h1>
+
+    <formaction="">
+        
+        <input type="checkbox" name="terminos de uso" id="terminos de uso"><label for="terminos">terminos de uso</label>
+        <div class="bloque"></div>
+        <input type="checkbox" name="publicidad" id="publicidad"><label for="publicidad">Publicidad</label>
+        <div class="bloque"></div>
+        <input type="submit" name="enviar" value="enviar">
+    </form>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusantium id praesentium expedita eum deleniti blanditiis dolore ipsa sapiente, magnam reiciendis culpa quas rerum odio quae voluptatem voluptates nesciunt recusandae aspernatur cum consequuntur quis quos nihil sed? Molestiae doloremque sapiente fugit!</p>
+    <p class="azul">Lorem ipsum dolor sit amet consectetur adipisicing elit. Tenetur odio reiciendis repudiandae quasi, velit magnam modi voluptatibus sapiente dolorum assumenda.</p>
+
+</body>
+</html>
