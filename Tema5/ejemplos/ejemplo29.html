@@ -16,20 +16,19 @@
             border: 2px solid brown;
             display: flex;
             flex-direction: row;
-            flex-wrap: wrap;
-            align-content: space-evenly;
-           /* align-items: center;
-            justify-content: center;*/
+            max-width: 900px;
             
-
-            width: 800px;
-            height: 600px;
         }
 
         .item-flex{
             border: 2px solid greenyellow;
-            width: 300px;
             height: 200px;
+            width: 200px;
+            flex-grow: 1;
+        }
+
+        .item-flex:first-child{
+            flex-grow: 0;
         }
 
         h2{
