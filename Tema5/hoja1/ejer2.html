@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 2</title>
+    <style>
+
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        div{
+            width: 400px;
+            height: 200px;
+            background-color: rgb(195, 195, 195);
+            position: relative;
+            z-index: 0;
+        }
+
+        h1{
+            text-align: center;
+           font-size: 26px; 
+            padding-top: 20px;
+            padding-bottom: 20px;
+        }
+
+        .normal{
+            text-align: center;
+            
+        }
+
+        .oferta{
+            text-transform: uppercase;
+            font-size: 40px;
+            color: rgb(241, 155, 145);
+            display: inline-block;
+            border: 5px dashed;
+            position: absolute;
+            right: 70px;
+            bottom: 45px;
+            z-index: -1;
+        }
+
+
+    </style>
+</head>
+<body>
+
+    <div>
+
+        <h1>Consigue tu promoción en la primera compra</h1>
+
+        <p class="normal">Si compras por primera vez en esta tienda, recibirás un descuento de 5€</p>
+
+        <p class="oferta">ofertón</p>
+
+    </div>
+
+    
+    
+</body>
+</html>
