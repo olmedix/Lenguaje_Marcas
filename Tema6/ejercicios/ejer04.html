@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -36,4 +37,44 @@
         </script>
     
 </body>
+=======
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 4</title>
+</head>
+<body>
+    <h1>Escribe un programa que solicite tu nombre, tu edad, tu estatura y tu
+        estado civil (casado o soltero). Después debe mostrar estos datos en una misma
+        línea si el estado civil está casado, y en columna si el estado civil es soltero.
+        (resultado por consola).
+        </h1>
+
+        <script>
+            "use strict"
+
+            let persona ={
+                nombre:prompt("Nombre:"),
+                edad: prompt("Edad:"),
+                estatura: prompt("Estatura:"),
+                estadoCivil: prompt("Estado civil:")
+            }
+            
+            if(persona.estadoCivil == "casado"){
+                        console.log("Nombre: "+persona.nombre+", Edad: "+persona.edad+", Estatura: "+
+                        persona.estatura +", Estado civil: "+ persona.estadoCivil);
+            }else{
+                for (let datos in persona) {
+        
+                        console.log(persona[datos]);
+                }
+            }
+
+
+        </script>
+    
+</body>
+>>>>>>> 8c37519f33fc17ed028ccbe24fa8b91543e485d7
 </html>
