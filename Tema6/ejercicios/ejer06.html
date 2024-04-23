@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 6</title>
+</head>
+<body>
+    <h1>Escribe un programa que solicite una nota (numérica), y devuelva un
+        mensaje de valoración de la nota, por ejemplo: Si se introduce un 3, se puede
+        mostrar el mensaje en la consola: «la nota 3 es muy insuficiente», si se introduce un
+        7, el mensaje podría ser: «El 7 es un notable bajo», etc.</h1>
+    
+        <script>
+            "use strict"
+
+            let nota = prompt("Escribe una nota: ")
+
+            switch(Number(nota)){
+                case 1:
+                case 2:
+                case 3:
+                case 4:
+                    console.log(`La nota ${nota} es un insuficiente. `);
+                    break;
+                case 5:
+                console.log(`La nota ${nota} es un suficiente. `);
+                    break;
+                case 6:
+                console.log(`La nota ${nota} es un bién. `);
+                    break;
+                case 7:
+                case 8:
+                console.log(`La nota ${nota} es un notable. `);
+                    break;
+                case 9:
+                case 10:
+                console.log(`La nota ${nota} es un excelente. `);
+                    break;
+                default:
+                console.log(`La nota ${nota} no es un número. `);
+                    break;
+            }
+
+        </script>
+</body>
+</html>
