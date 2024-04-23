@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 7</title>
+</head>
+<body>
+    <h1>Crea un programa para saber si un número (pedido previamente), es
+        impar o par. Hay que poder pedir tantos números como el usuario desee.
+        </h1>
+
+    <script>
+
+        let numero = prompt("Escribe un número y te diré si es par/impar ( 0 para terminar):")
+
+        while(Number(numero) !== 0){
+
+            if(numero%2 === 0){
+                console.log(`El ${numero} es par.`);
+            }else{
+                console.log(`El ${numero} es impar.`);
+            }
+
+            numero = prompt("Escribe un número y te diré si es par/impar ( 0 para terminar):")
+        }
+
+
+    </script>
+    
+</body>
+</html>
