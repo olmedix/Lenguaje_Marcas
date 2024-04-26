@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 10</title>
+</head>
+<body>
+    <p>Escribe un programa que solicite tres números e imprima en la consola
+        el número más pequeño.</p>
+    
+    <script>
+
+        let num = prompt("Escribe un número:");
+        let num2 = prompt("Escribe el segundo número:");
+        let num3 = prompt("Escribe el tercer número:");
+
+        if(Number(num) <= Number(num2) && Number(num) <= Number(num3)){
+            console.log(num);
+        }else if(Number(num2) <= Number(num) && Number(num2) <= Number(num3)){
+            console.log(num2);
+        }else{
+            console.log(num3);
+        }
+
+    </script>
+    
+</body>
+</html>
