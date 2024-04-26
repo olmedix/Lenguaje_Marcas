@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejemplo 6</title>
+    <style>
+        img{
+            width: 400px;
+        }
+    </style>
+</head>
+<body>
+    <h1 class="encabezado">Trabajando el DOM</h1>
+    
+    <p class="texto">Lorem ipsum dolor sit amet consectetur adipisicing elit. Maiores totam, recusandae dolorum aspernatur sint nemo voluptatibus commodi modi quam voluptatem pariatur delectus ipsa ducimus facere fuga quia provident molestiae nulla?</p>
+
+    <img class="imagen" src="imgs/arte/Noche estrellada - Van Gogh.jpg" alt="imagen">
+
+    <img src="imgs/arte/Paseo a la orilla del mar - Sorolla.jpg" onmouseover="ponerBorde(this)" onmouseout="quitarBorde(this)" alt="paseo">
+
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugit itaque minima qui expedita consequuntur temporibus obcaecati eius laboriosam. Laudantium, sunt.</p>
+
+
+    <script>
+        "use strict"
+
+        document.getElementsByClassName("texto")[0].addEventListener("click",espaciar);
+
+        function espaciar(){
+            document.getElementsByClassName("texto")[0].style.letterSpacing = "5px";
+        }
+
+        document.querySelector("img").addEventListener("click",ocultar);
+
+        function ocultar(){
+            document.querySelector("img").style.visibility="hidden";
+        }
+
+        //EVENTOS CON RATON OVER Y LO CONTRARIO.
+
+        function ponerBorde(elemento){
+            elemento.style.border = "5px solid black";
+        }
+
+        function quitarBorde(elemento){
+            elemento.style.border="none";
+        }
+
+    </script>
+
+</body>
+</html>
