@@ -33,15 +33,35 @@
     </form>
 
     <script>
-        document.getElementById("usuario").onfocus = resaltar;
-        document.getElementById("usuario").onblur = blanquear;
+        // Creamos unas variables que apunten a los inputs de usuario y password.
+        // Para no estar repitiendo lo de document.get ...
+        let usuario =document.getElementById("usuario");
+        let password =document.getElementById("password");
+        
+        // Añadimos dos listeners al input usuario para que se llame a la función resaltar() 
+        // cuando reciba el foco, y a la función blanquear cuando lo pierda.
+        // Al llamar a las funciones resaltar() y blanquear() pasamos por referencia los input al que queremos
+        // aplicárselo. Esto hay que hacerlo a través de una función sin nombre que llama a resaltar() o blanquear():
+        usuario.addEventListener( 'focus' , function(){
+            resaltar(usuario)});
+        usuario.addEventListener("focusout",function(){
+            blanquear(usuario)});
 
-        function resaltar(){
-            document.getElementById("usuario").style.backgroundColor ="palegreen";
+        // Añadimos dos listeners al input password para que se llame a la función resaltar() 
+        // cuando reciba el foco, y a la función blanquear cuando lo pierda.
+        // Al llamar a las funciones resaltar() y blanquear() pasamos por referencia los input al que queremos
+        // aplicárselo. Esto hay que hacerlo a través de una función sin nombre que llama a resaltar() o blanquear():
+        password.addEventListener( 'focus' , function(){
+            resaltar(password)});
+        password.addEventListener("focusout",function(){
+            blanquear(password)});
+        
+        function resaltar(elemento){
+            elemento.style.backgroundColor ="palegreen";
         }
 
-        function blanquear(){
-            document.getElementById("usuario").style.backgroundColor ="white";
+        function blanquear(elemento){
+            elemento.style.backgroundColor ="white";
         }
     </script>
 
