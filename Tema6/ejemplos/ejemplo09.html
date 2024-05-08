@@ -1,24 +1,26 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ejemplo 8</title>
+    <title>Ejemplo 9</title>
     <style>
-        label{
+        label {
             margin-bottom: 7px;
             display: block;
         }
 
-        input{
+        input {
             margin-bottom: 20px;
             display: block;
         }
     </style>
 </head>
+
 <body>
-    
-    <h1>Evento oninput</h1>
+
+    <h1>Evento onchange</h1>
 
     <form action="">
 
@@ -34,15 +36,22 @@
 
     <script>
 
-        let usuario =document.getElementById("usuario");
+        let usuario = document.getElementById("usuario");
 
         // Al cambiar el contenido del input usuario, se llama a la función convertir
-        // que convierte el texto en minúsculas.
-        usuario.addEventListener("input", convertir);
+        // que comprobará que el nombre de usuario tenga al menos 5 caracteres.
+        usuario.addEventListener("change", verificar);
 
-        function convertir(){
+        function verificar() {
 
-            usuario.value = usuario.value.toLowerCase();
+            let caracteres = usuario.value;
+
+            if (caracteres.length < 5) {
+
+                usuario.style.border = "3px solid red";
+            } else {
+                usuario.style.border = "";
+            }
 
         }
 
@@ -50,4 +59,5 @@
 
 
 </body>
+
 </html>
