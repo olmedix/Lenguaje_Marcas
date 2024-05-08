@@ -7,7 +7,9 @@
 </head>
 <body>
 
-    <h1>Añadir un div a DOM</h1>
+    <h1 id="titulo">Añadir un div a DOM</h1>
+
+    <input id="boton" type="button" value="Añadir">
 
     <script>
 
@@ -20,8 +22,13 @@
         nuevoDiv.style.height = "60px";
         nuevoDiv.style.backgroundColor = "purple";
 
-        // Lo añadimos al DOM al final.
-        document.body.appendChild(nuevoDiv);
+        // Lo añadimos al DOM al final. Al pulsar el botón.
+        document.getElementById("boton").addEventListener("click", anyadir);
+
+        function anyadir(){
+            document.body.appendChild(nuevoDiv);
+        }
+        
 
         // Creamos un párrafo
         let parrafo = document.createElement("p");
