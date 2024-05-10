@@ -1,47 +1,89 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ejemplo 10</title>
 </head>
+
 <body>
 
     <h1 id="titulo">Añadir un div a DOM</h1>
 
-    <input id="boton" type="button" value="Añadir">
+    <button id="boton">Añadir</button>
 
     <script>
 
-        // EJERCICIO: Hacer que los elementos de abajo aparezcan tras pulsar un botón. (input type button).
-        //Creamos un nuevo div
-        let nuevoDiv = document.createElement("div");
+        // Variable semáforo para saber si hay que añadir u ocultar.
+        let verificar = true;
 
-        //Lo configuramos
-        nuevoDiv.style.width ="100px";
-        nuevoDiv.style.height = "60px";
-        nuevoDiv.style.backgroundColor = "purple";
+        let boton = document.getElementById("boton");
 
         // Lo añadimos al DOM al final. Al pulsar el botón.
-        document.getElementById("boton").addEventListener("click", anyadir);
+        boton.addEventListener("click", modificar);
 
-        function anyadir(){
-            document.body.appendChild(nuevoDiv);
+        function modificar() {
+
+            if (verificar) {
+                anyadir();
+            } else {
+                eliminar();
+            }
         }
+
+        function anyadir() {
+            // EJERCICIO: Hacer que los elementos de abajo aparezcan tras pulsar un botón. (input type button).
+            //Creamos un nuevo div
+            let nuevoDiv = document.createElement("div");
+            nuevoDiv.id = "nuevoDiv";
+
+            //Lo configuramos
+            nuevoDiv.style.width = "100px";
+            nuevoDiv.style.height = "60px";
+            nuevoDiv.style.backgroundColor = "purple";
+
+
+            // Creamos un párrafo
+            let parrafo = document.createElement("p");
+
+            // Configuramos el párrafo
+            parrafo.innerHTML = "buenos dias";
+            parrafo.style.color = "yellow";
+            parrafo.style.backgroundColor = "green";
+
+            // Lo añadimos al div
+            nuevoDiv.appendChild(parrafo);
+
+
+            document.body.appendChild(nuevoDiv);
+
+
+            // Cambiamos el textodel botón
+            boton.innerText = "Ocultar div extra";
+
+            verificar = false;
+        }
+
+        function eliminar() {
+
+
+            // Accedemos al nuevo div y lo eliminamos.
+            document.getElementById("nuevoDiv").remove();
+            
         
 
-        // Creamos un párrafo
-        let parrafo = document.createElement("p");
+            // Cambiamos el texto del botón
+            boton.innerText = "Añadir";
 
-        // Configuramos el párrafo
-        parrafo.innerHTML = "buenos dias";
-        parrafo.style.color = "yellow";
-        parrafo.style.backgroundColor = "green";
+            verificar = true;
 
-        // Lo añadimos al div
-        nuevoDiv.appendChild(parrafo);
-        
+        }
+
+
+
     </script>
-    
+
 </body>
+
 </html>
