@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 2</title>
+    <style>
+        button,
+        a {
+            padding: 15px 60px;
+            margin-right: 20px;
+            margin-bottom: 20px;
+            ;
+        }
+
+        #wikipedia {
+            background-color: cornflowerblue;
+            border: 2px solid cornflowerblue;
+        }
+
+        #greenPeace {
+            background-color: palegreen;
+            border: 2px solid palegreen;
+        }
+
+        #cruzRoja {
+            background-color: darksalmon;
+            border: 2px solid darksalmon;
+        }
+
+        #enlace {
+            background-color: rgb(237, 228, 96);
+            text-decoration: none;
+            color: black;
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1>Elegir destino del enlace</h1>
+
+    <p>Pulsa uno de estos tres colores para elegir el destino del link que aparace más abajo.</p>
+
+    <button id="wikipedia">Wikipedia</button>
+    <button id="greenPeace">GreenPeace</button>
+    <button id="cruzRoja">Cruz Roja</button>
+
+    <p>Pulsa el siguiente link para dirigirte a la web elegida:</p>
+
+    <a id="enlace" class="desactivado" href="" target="_blank"></a>
+
+    <script>
+
+        "use strict"
+
+        let botonAzul = document.getElementById("wikipedia");
+        let botonVerde = document.getElementById("greenPeace");
+        let botonRojo = document.getElementById("cruzRoja");
+        let enlace = document.getElementById("enlace");
+
+        botonAzul.addEventListener("click", cambioEnlace);
+        botonVerde.addEventListener("click", cambioEnlace);
+        botonRojo.addEventListener("click", cambioEnlace);
+
+
+        function cambioEnlace() {
+
+            enlace.style.display = "inline";
+
+            if (event.target === botonAzul) {
+                enlace.innerText = "Ir a Wikipedia";
+                enlace.href = "https://www.wikipedia.org/";
+            } else if (event.target === botonVerde) {
+                enlace.innerText = "Ir a GreenPeace";
+                enlace.href = "https://es.greenpeace.org/es/";
+            } else if (event.target === botonRojo) {
+                enlace.innerText = "Ir a Cruz roja";
+                enlace.href = "https://www2.cruzroja.es/";
+            }
+
+        }
+
+
+    </script>
+
+</body>
+
+</html>
