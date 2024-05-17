@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Open Weather Map</title>
+</head>
+<body>
+    <h1>Open Weather Map</h1>
+
+    <script>
+        "use strict"
+
+        let url = "https://api.openweathermap.org/data/2.5/weather?q=Palma&appid=e35450080a69eee3d092608c513cddcb&units=metric";
+
+        fetch(url)
+        .then(function(respuesta){
+            return respuesta.json();
+        })
+        .then(function (respuestaJSON){
+            let ciudad = respuestaJSON.name;
+            let temperatura = respuestaJSON.main.temp;
+            let amanecer = respuestaJSON.sys.sunrise;
+            let atardecer = respuestaJSON.sys.sunset
+            
+            console.log(`Ciudad: ${ciudad}`);
+            console.log(`Temperatura: ${temperatura}ºC.`);
+            console.log(`Amanecer: ${epochAFecha(amanecer)}`);
+            console.log(`Atardecer: ${epochAFecha(atardecer)}`);
+        })
+        .catch(function(){
+            console.log("Error en la petición de datos.");
+        });
+
+
+        function epochAFecha(epoch){
+            let tiempo = new Date(amanecer * 1000);
+            return tiempo.getHours() +":" + tiempo.getMinutes();
+        }
+
+    </script>
+    
+</body>
+</html>

@@ -4,10 +4,8 @@
             "padre": "Pedro Álvarez",
             "madre": "Luisa Robles",
             "hijos": [
-                {
-                    "hijo": "Manuel Álvarez",
-                    "hija": "Natalia Álvarez"
-                }
+                "Manuel Álvarez",
+                "Natalia Álvarez"
             ]
         }
     ]
