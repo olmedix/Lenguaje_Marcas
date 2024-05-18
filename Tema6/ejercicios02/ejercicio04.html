@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 4</title>
+    <style>
+        #cajaColor {
+            width: 250px;
+            height: 130px;
+            border: 3px solid goldenrod;
+
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Seleccionar un color</h1>
+
+    <p>Elige un color y se aplicará al rectángulo de abajo:</p>
+
+    <select name="color" id="color">
+        <option value="">Elige un color</option>
+        <option value="Verde">Verde</option>
+        <option value="Purpura">Purpura</option>
+        <option value="Amarillo">Amarillo</option>
+        <option value="Rojo">Rojo</option>
+        <option value="Azul">Azul</option>
+
+    </select>
+
+    <p>Color elegido:</p>
+
+    <div id="cajaColor"></div>
+
+    <script>
+        "use strict"
+
+        let cajon = document.getElementById("cajaColor");
+        let color = document.getElementById("color");
+
+
+        color.addEventListener("change", cambiaColor);
+
+        function cambiaColor() {
+            let eleccion = event.target.value;
+
+            if (eleccion == "Verde") {
+                console.log("hola");
+                cajon.style.backgroundColor = "green";
+            } else if (eleccion == "Purpura") {
+                cajon.style.backgroundColor = "purple";
+            } else if (eleccion == "Amarillo") {
+                cajon.style.backgroundColor = "yellow";
+            } else if (eleccion == "Rojo") {
+                cajon.style.backgroundColor = "red";
+            } else if (eleccion == "Azul") {
+                cajon.style.backgroundColor = "blue";
+            } else {
+                cajon.style.backgroundColor = "white";
+            }
+
+        }
+    </script>
+
+</body>
+
+</html>
