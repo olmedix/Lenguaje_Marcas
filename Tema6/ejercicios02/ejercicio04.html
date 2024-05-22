@@ -21,12 +21,12 @@
     <p>Elige un color y se aplicará al rectángulo de abajo:</p>
 
     <select name="color" id="color">
-        <option value="">Elige un color</option>
-        <option value="Verde">Verde</option>
-        <option value="Purpura">Purpura</option>
-        <option value="Amarillo">Amarillo</option>
-        <option value="Rojo">Rojo</option>
-        <option value="Azul">Azul</option>
+  
+        <option value="green">Verde</option>
+        <option value="purple">Purpura</option>
+        <option value="yellow">Amarillo</option>
+        <option value="red">Rojo</option>
+        <option value="blue">Azul</option>
 
     </select>
 
@@ -39,28 +39,20 @@
 
         let cajon = document.getElementById("cajaColor");
         let color = document.getElementById("color");
-
+        window.addEventListener("load",resetear);
 
         color.addEventListener("change", cambiaColor);
 
         function cambiaColor() {
             let eleccion = event.target.value;
 
-            if (eleccion == "Verde") {
-                console.log("hola");
-                cajon.style.backgroundColor = "green";
-            } else if (eleccion == "Purpura") {
-                cajon.style.backgroundColor = "purple";
-            } else if (eleccion == "Amarillo") {
-                cajon.style.backgroundColor = "yellow";
-            } else if (eleccion == "Rojo") {
-                cajon.style.backgroundColor = "red";
-            } else if (eleccion == "Azul") {
-                cajon.style.backgroundColor = "blue";
-            } else {
-                cajon.style.backgroundColor = "white";
-            }
+            cajon.style.backgroundColor = eleccion;
 
+        }
+
+        function resetear(){
+            color.value = "green";
+            cajon.style.backgroundColor= "green";
         }
     </script>
 

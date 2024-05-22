@@ -8,10 +8,20 @@
 <body>
     <h1>Open Weather Map</h1>
 
+    <h2>El tiempo en <span id="ciudad"></span></h2>
+    <p>Temperatural actual: <span id="temperatura"></span></p>
+    <p>Amanece a las <span id="amanecer"></span></p>
+    <p>Anochece a las  <span id="atardecer"></span></p>
+    <p>Presión atmosférica: <span id="presion"></span></p>
+    <p>Humedad: <span id="humedad"></span></p>
+
     <script>
         "use strict"
 
-        let url = "https://api.openweathermap.org/data/2.5/weather?q=Palma&appid=e35450080a69eee3d092608c513cddcb&units=metric";
+        tiempo("Palma");
+
+        function tiempo(localizacion){
+            let url = "https://api.openweathermap.org/data/2.5/weather?q=" + localizacion +"&appid=e35450080a69eee3d092608c513cddcb&units=metric";
 
         fetch(url)
         .then(function(respuesta){
@@ -20,22 +30,57 @@
         .then(function (respuestaJSON){
             let ciudad = respuestaJSON.name;
             let temperatura = respuestaJSON.main.temp;
+            let presion = respuestaJSON.main.pressure;
+            let humedad = respuestaJSON.main.humidity;
             let amanecer = respuestaJSON.sys.sunrise;
-            let atardecer = respuestaJSON.sys.sunset
+            let atardecer = respuestaJSON.sys.sunset;
+            
             
             console.log(`Ciudad: ${ciudad}`);
+            document.getElementById("ciudad").innerHTML = ciudad
+
             console.log(`Temperatura: ${temperatura}ºC.`);
+            document.getElementById("temperatura").innerHTML = temperatura +"ºC"
+            pintarTemperatura(temperatura);
+
             console.log(`Amanecer: ${epochAFecha(amanecer)}`);
+            document.getElementById("amanecer").innerHTML = epochAFecha(amanecer)+ "h"
+
             console.log(`Atardecer: ${epochAFecha(atardecer)}`);
+            document.getElementById("atardecer").innerHTML = epochAFecha(atardecer)+ "h"
+
+            console.log(`Presión: ${presion}`);
+            document.getElementById("presion").innerHTML = presion + " mbar";
+
+            console.log(`Humedad: ${humedad}`);
+            document.getElementById("humedad").innerHTML = humedad + "%";
+
         })
-        .catch(function(){
+        .catch(function(error){
             console.log("Error en la petición de datos.");
+            console.log(error)
         });
+        }
 
 
         function epochAFecha(epoch){
-            let tiempo = new Date(amanecer * 1000);
+            let tiempo = new Date(epoch * 1000);
+
+            if(tiempo.getMinutes() < 10){
+                return tiempo.getHours() +":0" + tiempo.getMinutes();
+            }
+
             return tiempo.getHours() +":" + tiempo.getMinutes();
+        }
+
+        // temperatura < 18 -> azul
+        // temperatura > 18 -> rojo
+        function pintarTemperatura(temperatura){
+            if(temperatura < 18){
+                document.getElementById("temperatura").style.color = "blue";
+            }else{
+                document.getElementById("temperatura").style.color = "red";
+            }
         }
 
     </script>
