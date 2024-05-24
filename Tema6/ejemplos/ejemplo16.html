@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Open Weather Map</title>
+</head>
+
+<body>
+    <h1>Open Weather Map</h1>
+
+    <script>
+        "use strict"
+
+        let ciudades = ["Palma", "Alicante", "Denia", "Ares", "Tokio", "Manila", "Porto", "Paris", "Buenos Aires"];
+
+        for (let i = 0; i < ciudades.length; i++) {
+
+            tiempo(ciudades[i]);
+        }
+
+        // Consulta la API de OpenWeatherMap y crea los elementos HTML para mostrar la información del tiempo en esa ciudad.
+        function tiempo(localizacion) {
+            let url = "https://api.openweathermap.org/data/2.5/weather?q=" + localizacion + "&appid=7dcc6bb908fc23a49ee9184422cc7cfd&units=metric";
+
+            fetch(url)
+                .then(function (respuesta) {
+                    return respuesta.json();
+                })
+                .then(function (respuestaJSON) {
+
+                    console.log(respuestaJSON);
+
+                    let ciudad = respuestaJSON.name;
+
+                    let temperatura = respuestaJSON.main.temp;
+
+                    let salidaSol = respuestaJSON.sys.sunrise;
+
+                    let puestaSol = respuestaJSON.sys.sunset;
+
+                    let presion = respuestaJSON.main.pressure;
+
+                    let humedad = respuestaJSON.main.humidity;
+
+                    // Agregamos los parrafos al html.
+                    let mostrarCiudad = document.createElement("h2");
+                    mostrarCiudad.innerHTML = "El tiempo en: " + ciudad;
+                    document.body.appendChild(mostrarCiudad);
+
+                    let mostrarTemperatura = document.createElement("p");
+                    mostrarTemperatura.innerHTML = "Temperatura actual: " + temperatura + "ºC";
+                    document.body.appendChild(mostrarTemperatura);
+
+                    let mostrarAmanecer = document.createElement("p");
+                    mostrarAmanecer.innerHTML = "Amanece a las " + epochAFecha(salidaSol);
+                    document.body.appendChild(mostrarAmanecer);
+
+                    let mostrarAnochecer = document.createElement("p");
+                    mostrarAnochecer.innerHTML = "Anochece a las " + epochAFecha(puestaSol);
+                    document.body.appendChild(mostrarAnochecer);
+
+                    let mostrarPresion = document.createElement("p");
+                    mostrarPresion.innerHTML = "Presión atmosférica:" + presion + " mbar";
+                    document.body.appendChild(mostrarPresion);
+
+                    let mostrarHUmedad = document.createElement("p");
+                    mostrarHumedad.innerHTML = "Humedad relativa: " + humedad + "%";
+                    document.body.appendChild(mostrarHumedad);
+
+
+                })
+                .catch(function () {
+                    console.log("Error en la petición de datos.");
+                });
+
+        }
+
+        function epochAFecha(epoch) {
+            let tiempo = new Date(epoch * 1000);
+            if (tiempo.getMinutes() < 10) {
+                return tiempo.getHours() + ":" + "0" + tiempo.getMinutes();
+            } else {
+                return tiempo.getHours() + ":" + tiempo.getMinutes();
+            }
+        }
+
+        function colorTemp(temperatura) {
+            if (temperatura < 18) {
+                return "blue";
+            } else {
+                return "red";
+            }
+        }
+
+    </script>
+</body>
+
+</html>
