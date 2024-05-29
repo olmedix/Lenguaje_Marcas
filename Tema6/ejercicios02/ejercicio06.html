@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 6</title>
+    <style>
+        img {
+            border: 5px solid green;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1>Galería</h1>
+
+    <p>Pulsa sobre la imagen y la fotografía cambiará.</p>
+
+    <img id="foto" src="imgs/hamsters/w150px/hamster01.png" alt="hamsters">
+
+
+    <script>
+
+        "use strict"
+        
+        let imagen = document.getElementById("foto");
+        let colores = ["blue","red","yellow","green","purple","grey"
+    ];
+
+
+        // imagen.addEventListener("click", cambiarFoto);
+        imagen.addEventListener("click",colorBorde);
+
+
+        function colorBorde(){
+
+            
+               let element =Math.floor(Math.random() * colores.length-1);
+               console.log(element);
+               console.log(colores.length);
+               
+                imagen.style.border = "5px solid " + colores[element];
+           
+
+            
+        }
+
+        function cambiarFoto() {
+
+            let numAleatorio = Math.floor(Math.random() * 12+1);
+            imagen = document.getElementById("foto");
+            let rutaImagen;
+
+            if(numAleatorio < 10){
+                rutaImagen= "imgs/hamsters/w150px/hamster0" + numAleatorio + ".png";
+            }else{
+                rutaImagen= "imgs/hamsters/w150px/hamster" + numAleatorio + ".png";
+            }
+
+            
+            console.log(rutaImagen);
+
+            imagen.src = rutaImagen;
+
+        }
+
+
+
+    </script>
+</body>
+
+</html>
