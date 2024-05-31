@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejemplo 17</title>
+</head>
+
+<body>
+    <h1>The Movie DB</h1>
+
+    <script>
+        const options = {
+            method: 'GET',
+            headers: {
+                accept: 'application/json',
+                Authorization: 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIzOWIxYWZlMmE0NmY4NGEyOGU4YmQwZjE2ZjZmMDFhZSIsInN1YiI6IjYyYWQ4ZmI3NDE0MjkxMDA5MjExN2ZlZCIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.Rb612hCPozzyO39eHbWjBsRYdwBddhhYM7ochc0oVMI'
+            }
+        };
+
+        fetch('https://api.themoviedb.org/3/search/person?query=Tom%20Hanks&include_adult=false&language=en-US&page=1', options)
+            .then(response => response.json())
+            .then(response => {
+                let name = response.results[0].name;
+                let id = response.results[0].id;
+
+                console.log("Nombre: " + name);
+                console.log("Id: " + id);
+            })
+            .catch(err => console.error(err));
+    </script>
+</body>
+
+</html>
