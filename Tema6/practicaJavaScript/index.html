@@ -105,7 +105,7 @@
 
 
                         let imagen = document.createElement("img");
-                        imagen.alt = response.results[i].title;
+                        imagen.alt = "Cartel de " + response.results[i].title;
                         imagen.src = "https://image.tmdb.org/t/p/original" + response.results[i].poster_path;
                         imagen.id = "imagen";
                         contenedor.appendChild(imagen);
