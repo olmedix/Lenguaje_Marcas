@@ -41,7 +41,7 @@
             border-color: #74b209;
         }
 
-        #titulo_pelicula {
+        .titulo_pelicula {
             background-color: #B0A7A7;
             border-radius: 5px;
             color: #4f4c4c;
@@ -49,13 +49,13 @@
             margin-top: 25px;
         }
 
-        #imagen {
+        .imagen {
             width: 50%;
             margin-top: 10px;
             margin-bottom: 5px;
         }
 
-        #descripcion {
+        .descripcion {
             background-color: #B0A7A7;
             color: white;
             padding: 10px;
@@ -72,12 +72,10 @@
         <p id="texto_principal">Pulsa para ver la cartelera en los cines de EEUU</p>
 
         <button id="buscador">Buscar</button>
-
-
     </div>
 
     <script>
-        "use strict"
+        "use strict";
 
         document.getElementById("buscador").addEventListener("click", anyadir);
 
@@ -90,35 +88,38 @@
                 }
             };
 
-            fetch('https://api.themoviedb.org/3/movie/now_playing?language=es&page=1', options)
-                .then(response => response.json())
-                .then(response => {
+            // Verificar si el contenido ya ha sido añadido
+            if (!document.querySelector('.movie-content')) {
+                fetch('https://api.themoviedb.org/3/movie/now_playing?language=es&page=1', options)
+                    .then(response => response.json())
+                    .then(response => {
+                        let peliculas = response.results;
 
-                    let arrayPelis = response.results;
+                        for (let i = 0; i < peliculas.length; i++) {
+                            let contenedor_Pelis = document.createElement("div");
+                            contenedor_Pelis.classList.add('movie-content');
 
-                    for (let i = 0; i < arrayPelis.length; i++) {
+                            let titulo = document.createElement("h2");
+                            titulo.innerHTML = peliculas[i].title;
+                            titulo.classList.add('titulo_pelicula');
+                            contenedor_Pelis.appendChild(titulo);
 
-                        let titulo = document.createElement("h2");
-                        titulo.innerHTML = response.results[i].title;
-                        titulo.id = "titulo_pelicula";
-                        contenedor.appendChild(titulo);
+                            let imagen = document.createElement("img");
+                            imagen.alt = "Cartel de " + peliculas[i].title;
+                            imagen.src = "https://image.tmdb.org/t/p/original" + peliculas[i].poster_path;
+                            imagen.classList.add('imagen');
+                            contenedor_Pelis.appendChild(imagen);
 
+                            let texto = document.createElement("div");
+                            texto.innerHTML = peliculas[i].overview;
+                            texto.classList.add('descripcion');
+                            contenedor_Pelis.appendChild(texto);
 
-                        let imagen = document.createElement("img");
-                        imagen.alt = "Cartel de " + response.results[i].title;
-                        imagen.src = "https://image.tmdb.org/t/p/original" + response.results[i].poster_path;
-                        imagen.id = "imagen";
-                        contenedor.appendChild(imagen);
-
-
-                        let texto = document.createElement("div");
-                        texto.innerHTML = response.results[i].overview;
-                        texto.id = "descripcion";
-                        contenedor.appendChild(texto);
-                    }
-
-                })
-                .catch(err => console.error(err));
+                            document.getElementById('contenedor').appendChild(contenedor_Pelis);
+                        }
+                    })
+                    .catch(err => console.error(err));
+            } 
         }
     </script>
 
