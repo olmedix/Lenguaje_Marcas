@@ -62,6 +62,10 @@
             border-radius: 5px;
             margin-bottom: 40px;
         }
+
+        .contenedor-pelis {
+            margin-bottom: 20px;
+        }
     </style>
 </head>
 
@@ -89,33 +93,33 @@
             };
 
             // Verificar si el contenido ya ha sido añadido
-            if (!document.querySelector('.movie-content')) {
+            if (!document.querySelector('.contenedorPelis')) {
                 fetch('https://api.themoviedb.org/3/movie/now_playing?language=es&page=1', options)
                     .then(response => response.json())
                     .then(response => {
                         let peliculas = response.results;
 
                         for (let i = 0; i < peliculas.length; i++) {
-                            let contenedor_Pelis = document.createElement("div");
-                            contenedor_Pelis.classList.add('movie-content');
+                            let peliculaDiv = document.createElement("div");
+                            peliculaDiv.classList.add('contenedorPelis');
 
                             let titulo = document.createElement("h2");
                             titulo.innerHTML = peliculas[i].title;
                             titulo.classList.add('titulo_pelicula');
-                            contenedor_Pelis.appendChild(titulo);
+                            peliculaDiv.appendChild(titulo);
 
                             let imagen = document.createElement("img");
                             imagen.alt = "Cartel de " + peliculas[i].title;
                             imagen.src = "https://image.tmdb.org/t/p/original" + peliculas[i].poster_path;
                             imagen.classList.add('imagen');
-                            contenedor_Pelis.appendChild(imagen);
+                            peliculaDiv.appendChild(imagen);
 
                             let texto = document.createElement("div");
                             texto.innerHTML = peliculas[i].overview;
                             texto.classList.add('descripcion');
-                            contenedor_Pelis.appendChild(texto);
+                            peliculaDiv.appendChild(texto);
 
-                            document.getElementById('contenedor').appendChild(contenedor_Pelis);
+                            document.getElementById('contenedor').appendChild(peliculaDiv);
                         }
                     })
                     .catch(err => console.error(err));
