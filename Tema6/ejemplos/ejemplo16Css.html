@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/21caadb20f.js" crossorigin="anonymous"></script>
+    <title>Open Weather Map</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        .principal{
+            max-width: 700px;
+            margin: auto;
+            background-color: rgb(192, 206, 122);
+            text-align: center;
+            
+        }
+        
+        h1{
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 3.4rem;
+            color: rgb(185, 95, 62);
+            background-color: rgb(81, 160, 134);
+            border-radius: 30px
+        }
+      
+        i,p{
+            font-size: 1.8rem;
+            color: antiquewhite;
+            padding-right: 20px;
+        }
+
+        .cabecera{
+            font-size: 2.8rem;
+        }
+
+        div{
+            padding: 20px;
+        }
+
+        h2{
+            color: rgb(81, 160, 134);
+        }
+
+        i,p:hover{
+            font-size: 3.3rem; 
+        }
+
+        p{
+            display: inline-block;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="principal">
+    <h1>Open Weather Map</h1>
+
+    <script>
+        "use strict"
+
+        let ciudades = ["Palma", "Alicante", "Denia", "Ares", "Tokio", "Manila", "Porto", "Paris", "Buenos Aires"];
+
+        for (let i = 0; i < ciudades.length; i++) {
+
+            tiempo(ciudades[i]);
+        }
+
+        // Consulta la API de OpenWeatherMap y crea los elementos HTML para mostrar la información del tiempo en esa ciudad.
+        function tiempo(localizacion) {
+            let url = "https://api.openweathermap.org/data/2.5/weather?q=" + localizacion + "&appid=7dcc6bb908fc23a49ee9184422cc7cfd&units=metric";
+
+            fetch(url)
+                .then(function (respuesta) {
+                    return respuesta.json();
+                })
+                .then(function (respuestaJSON) {
+
+                    console.log(respuestaJSON);
+
+                    let ciudad = respuestaJSON.name;
+
+                    let temperatura = respuestaJSON.main.temp;
+
+                    let salidaSol = respuestaJSON.sys.sunrise;
+
+                    let puestaSol = respuestaJSON.sys.sunset;
+
+                    let presion = respuestaJSON.main.pressure;
+
+                    let humedad = respuestaJSON.main.humidity;
+
+                    // Agregamos los parrafos al html.
+                    let mostrarCiudad = document.createElement("h2");
+                    mostrarCiudad.classList.add("principal" , "cabecera");
+                    mostrarCiudad.innerHTML = "El tiempo en " + ciudad;
+                    document.body.appendChild(mostrarCiudad);
+
+                    // Creamos las etiquetas
+                    let contenedorTemp = document.createElement("div");
+                    contenedorTemp.classList.add("principal")
+                    let mostrarTemperatura = document.createElement("p");
+                    let enlaceTemp = document.createElement("i");
+                    enlaceTemp.classList.add("fa-solid" , "fa-temperature-high");
+                    mostrarTemperatura.innerHTML =temperatura + "ºC";
+
+                    // Incluimos el div y su icono y párrafo en su interior.
+                    document.body.appendChild(contenedorTemp);
+                    contenedorTemp.appendChild(enlaceTemp);
+                    contenedorTemp.appendChild(mostrarTemperatura);
+
+
+                    let contenedorAmanece = document.createElement("div");
+                    contenedorAmanece.classList.add("principal")
+                    let mostrarAmanecer = document.createElement("p");
+                    let enlaceAmanece = document.createElement("i");
+                    enlaceAmanece.classList.add("fa-solid" , "fa-sun");
+                    mostrarAmanecer.innerHTML =epochAFecha(salidaSol) + "h";
+                   
+                    document.body.appendChild(contenedorAmanece);
+                    contenedorAmanece.appendChild(enlaceAmanece);
+                    contenedorAmanece.appendChild(mostrarAmanecer)
+
+
+                    let contenedorAnoche = document.createElement("div");
+                    contenedorAnoche.classList.add("principal")
+                    let mostrarAnochecer = document.createElement("p");
+                    let enlaceAnochece = document.createElement("i");
+                    enlaceAnochece.classList.add("fa-solid" , "fa-moon");
+                    mostrarAnochecer.innerHTML =epochAFecha(puestaSol) + "h";
+                    document.body.appendChild(contenedorAnoche);
+                    contenedorAnoche.appendChild(enlaceAnochece);
+                    contenedorAnoche.appendChild(mostrarAnochecer);
+                    
+                     
+                    let contenedorPresion = document.createElement("div");
+                    contenedorPresion.classList.add("principal")
+                    let mostrarPresion = document.createElement("p");
+                    let enlacePresion = document.createElement("i");
+                    enlacePresion.classList.add("fa" , "fa-tachometer");
+                    mostrarPresion.innerHTML =presion + " mbar";
+                     
+                    document.body.appendChild(contenedorPresion);
+                    contenedorPresion.appendChild(enlacePresion);
+                    contenedorPresion.appendChild(mostrarPresion);
+                    
+                    
+                    let contenedorHumedad = document.createElement("div");
+                    contenedorHumedad.classList.add("principal")
+                    let mostrarHumedad = document.createElement("p");
+                    let enlaceHumedad = document.createElement("i");
+                    enlaceHumedad.classList.add("fa-solid" , "fa-droplet");
+                    mostrarHumedad.innerHTML =humedad + "%";
+
+                    document.body.appendChild(contenedorHumedad);
+                    contenedorHumedad.appendChild(enlaceHumedad);
+                    contenedorHumedad.appendChild(mostrarHumedad);
+
+
+                })
+                .catch(function () {
+                    console.log("Error en la petición de datos.");
+                });
+
+        }
+
+        function epochAFecha(epoch) {
+            let tiempo = new Date(epoch * 1000);
+            if (tiempo.getMinutes() < 10) {
+                return tiempo.getHours() + ":" + "0" + tiempo.getMinutes();
+            } else {
+                return tiempo.getHours() + ":" + tiempo.getMinutes();
+            }
+        }
+
+        function colorTemp(temperatura) {
+            if (temperatura < 18) {
+                return "blue";
+            } else {
+                return "red";
+            }
+        }
+
+    </script>
+
+</div>
+</body>
+
+</html>
